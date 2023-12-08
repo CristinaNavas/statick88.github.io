@@ -5,4 +5,4 @@ FROM nginx:latest
 WORKDIR /usr/share/nginx/html
 
 # Copy the 'web' directory (at your Dockerfile's location) into the container
-COPY web .
+COPY . .
