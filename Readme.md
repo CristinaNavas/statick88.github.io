@@ -14,7 +14,7 @@ FROM nginx:latest
 WORKDIR /usr/share/nginx/html
 
 # Copy the 'web' directory (at your Dockerfile's location) into the container
-COPY web .
+COPY . .
 ```
 ## Construcción de la imagen Docker
 
@@ -29,6 +29,6 @@ Este comando crea una nueva imagen Docker llamada **my-nginx-imag**e a partir de
 Para crear y ejecutar un contenedor a partir de la imagen que acabas de crear, ejecuta el siguiente comando en la terminal:
 
 ``` bash
-docker run -it --rm -dp 8080:80 -v ${pwd}/web:/usr/share/nginx/html --name web my-nginx-image
+docker run -it --rm -dp 8080:80 -v .:/usr/share/nginx/html --name web my-nginx-image
 ```
 Este comando crea y ejecuta un nuevo contenedor Docker llamado **web** a partir de la imagen **my-nginx-image**. El contenedor sirve la aplicación web en el puerto 8080 y monta el directorio **web** de tu máquina local en el directorio **/usr/share/nginx/html** del contenedor. Esto significa que cualquier cambio que hagas en los archivos de tu directorio **web** local se reflejará en vivo en el contenedor.
